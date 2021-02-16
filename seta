@@ -1,0 +1,140 @@
+answers for set a
+
+z1.CALL BY VALUE
+#include <stdio.h>
+
+int a = 100;
+int main ()
+{
+ printf ("before %d\n", a);
+ change (a);
+ printf ("after %d\n", a);
+ return 0;
+}
+void change (int a)
+{
+
+ a = a + 100;
+}
+
+
+1.CALL BY REFRRENCE
+#include <stdio.h>
+
+int main ()
+{ 
+ int a=10;
+ printf ("before %d\n", a);
+ change (&a);
+ printf ("after %d\n", a);
+ return 0;
+}
+void change (int a) 
+{
+    
+ a = a + 100;
+} 
+
+2.Write a c program to find the biggest of the elements in an array of size 10. 
+The array elements will be given from the keyboard.
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+   int num;
+   float *data;
+   printf("enter the total number of elements :");
+   scanf("%d",&num);
+   data=(float*)calloc(num, sizeof(float));
+   if (data == NULL)
+   {
+       printf("error !!! memory not allocated");
+       exit(0);
+   }
+   for(int i=0; i<num; ++i)
+   {
+       printf("enter number %d:" , i+1);
+       scanf("%f",data + i);
+   }
+   for(int i=1; i<num; ++i)
+   {
+       if(*data < *(data+i))
+       *data = *(data+i);
+   }
+printf("largest num = %.2f",*data);
+return 0;
+    
+}
+
+
+
+3.write a c program to allocate the array of size 10 using the malloc function and provide a 
+search function which will find the no in the array and return found or not found to the user.
+
+#include <stdio.h>
+#include <stdlib.h>
+void search (int);
+int a[10];
+int search_ele, flag=-1;
+void search(int);
+int main()
+{
+ int *p;
+ p=(int *)malloc(sizeof(int)*10);
+ scanf("enter the elements\n");
+ for(int i=0;i<10;i++)
+ {
+     scanf("%d",&a[i]);
+ }
+ printf("\n");
+ printf("enter the elements to be searched:");
+ scanf("%d",&search_ele);
+ void search(int search_ele);
+ {
+     for(int i=0;i<10;i++)
+     {
+         if(search_ele==a[i])
+         flag=1;
+     }
+     
+     if(flag==1)
+     printf("found");
+     else
+     printf("not found");
+ }
+
+
+4.Create as structure of emp or student or phone or address or book with any 3 relevant fields.
+
+Create 3 structure objects and initialize them with sample data.
+
+
+
+#include <stdio.h>
+#include <string.h>
+struct ph
+ {
+ char Id[10];
+char Ipaddress[20];
+char Number[20];
+ };
+
+int main()
+{
+ struct ph phones[3]; 
+ printf("Enter 3 Phone Details Id , Ipaddress ,Number \n");
+ for (int i = 0; i < 3; i++) 
+ {
+ scanf("%s",phones[i].Id);
+ scanf("%s",phones[i].Ipaddress);
+ scanf("%s",phones[i].Number);
+ }
+ for (int i = 0; i < 3; i++) 
+ {
+ printf("%s\t",phones[i].Id);
+ printf("%s\n",phones[i].Ipaddress);
+ printf("%s\n",phones[i].Number);
+ }
+ return 0;
+}
